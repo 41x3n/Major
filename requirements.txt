@@ -1,0 +1,7 @@
+django
+djangorestframework
+psycopg2
+python-dotenv
+dj-rest-auth
+django-allauth
+djangorestframework-simplejwt
