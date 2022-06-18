@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "members",
     "users",
+    "books",
     "django.contrib.sites",
     "allauth",
     "allauth.account",
