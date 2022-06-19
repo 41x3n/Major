@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Books(models.Model):
-    key = models.CharField(max_length=128, unique=True)
+    key = models.CharField(max_length=128, unique=True, primary_key=True)
     title = models.CharField(max_length=150)
     year = models.IntegerField()
     cover_i = models.IntegerField()
@@ -19,10 +19,11 @@ class Books(models.Model):
 
 
 class Collections(models.Model):
-    book_id = models.ForeignKey(
+    book_key = models.ForeignKey(
         Books,
+        to_field="key",
         on_delete=models.SET_NULL,
-        related_name="book_id",
+        related_name="book_key",
         blank=True,
         null=True,
     )

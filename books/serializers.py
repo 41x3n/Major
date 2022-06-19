@@ -9,4 +9,15 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Books
-        fields = ("pk", "key", "title", "year", "cover_i", "added_by_user")
+        fields = ("key", "title", "year", "cover_i", "added_by_user")
+
+
+class CollectionSerializer(serializers.ModelSerializer):
+    book_key = serializers.PrimaryKeyRelatedField(queryset=Books.objects.all())
+    user_id = serializers.StringRelatedField(
+        default=serializers.CurrentUserDefault(), read_only=True
+    )
+
+    class Meta:
+        model = Collections
+        fields = ("book_key", "user_id")
